@@ -1,0 +1,38 @@
+﻿@model OrderCheckOut
+
+
+<div class="order">
+    <h3> Order </h3>
+    <hr/>
+    @ViewBag.Message
+
+    <ul id="left" class="list-group list-group-horizontal">
+        <li class="list-group-item"> Ordered dishes </li>
+        <br/>
+        @foreach (var matratt in Model.FoodOrder)
+        {
+            <br/>
+            <li> @matratt.MatrattNamn </li>
+            <br/>
+            <li> @matratt.Pris kr </li>
+            <br/>}
+    </ul>
+    <ul id="left" class="list-group list-group-horizontal">
+        <li class="list-group-item"> Amount </li>
+        <br/>
+        @foreach (var koppling in Model.ListOfMatrattToOrder)
+        {
+            <br/>
+            <li> @koppling.Antal </li>
+            <li>
+                <a class="btn btn-link" role="button" asp-controller="Order" asp-action="RemoveFromOrder" asp-route-id="@koppling.MatrattId">Delete</a>
+            </li>
+            <br/>}
+    </ul>
+
+    <hr/>
+    <h4 class="text-uppercase"> Total: @Model.TodoBestallning.Totalbelopp kr</h4>
+    <a class="btn btn-primary" role="button" asp-controller="Order" asp-action="Food">Add a dish </a>
+    <a class="btn btn-primary" role="button" asp-controller="Order" asp-action="CheckOut">Confirm order </a>
+
+</div>

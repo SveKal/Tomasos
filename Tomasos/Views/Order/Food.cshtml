@@ -1,0 +1,31 @@
+﻿@model ViewModelOrder
+
+<div class="wrapper">
+    <div class="mainSide">
+        <h3>Pick your food</h3>
+        <br/>
+        <ul class="list-group list-group-horizontal">
+            @foreach (var type in Model.CategoryList)
+            {
+                <li class="list-group-item">
+                    <a asp-controller="Order"
+                       asp-action="ViewFoodToOrder"
+                       asp-route-id="@type.MatrattTyp1"
+                       data-ajax="true"
+                       data-ajax-method="POST"
+                       data-ajax-mode="replace"
+                       data-ajax-update="#partialStart">
+                        @type.Beskrivning
+                    </a>
+                </li>
+            }
+
+        </ul>
+        <br/>
+        <div id="partialStart" class="col-sm-7">
+
+        </div>
+        <br/>
+        <a class="text-left btn btn-link" role="button" asp-controller="Order" asp-action="CartView"> Check out </a>
+    </div>
+</div>

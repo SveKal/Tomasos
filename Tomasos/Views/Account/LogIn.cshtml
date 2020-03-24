@@ -1,0 +1,38 @@
+﻿@model Kund
+
+<div id="wrapper">
+    @{
+        var Message = "";
+        if (TempData.ContainsKey("Message"))
+        {
+            Message = TempData["Message"] as string;
+        }
+    }
+    <div class="centrerad">
+        <div>
+            <p> @Message</p>
+            <p> @ViewBag.Message</p>
+
+            <form class="form-horizontal " asp-controller="Account" asp-action="LogIn" method="post">
+                <h3 class="text-uppercase">Log in to your account</h3> <br/>
+                <div class="form-group ">
+                    <label class="form-label col-sm-3" asp-for="AnvandarNamn"> </label>
+                    <div class="col-sm-5">
+                        <input class="form-control" id="AnvandarNamn" asp-for="AnvandarNamn" placeholder="User name"/> <br/>
+                    </div>
+                </div>
+                <div class="form-group col-sx-2">
+                    <label class="form-label col-sm-3" asp-for="Losenord"></label>
+                    <div class="col-sm-5">
+                        <input class="form-control " id="Losenord" asp-for="Losenord" placeholder="Password"/>
+                    </div>
+                </div>
+                <br/> <br/>
+                <input class="btn btn-primary" role="button" type="submit" value="Log in"/>
+                <br/> <br/>
+                <p class="smallText"> Not a member? Register below </p>
+                <a class="btn btn-link" role="button" asp-controller="Account" asp-action="Register">Register</a>
+            </form>
+        </div>
+    </div>
+</div>

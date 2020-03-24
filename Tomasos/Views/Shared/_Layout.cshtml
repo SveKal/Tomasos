@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <environment names="Development">
+        <!-- Bootstrap  -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- Ajax library -->
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.17.0/jquery.validate.min.js"></script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
+
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
+    </environment>
+
+
+</head>
+
+<body>
+<div class="background">
+    <header>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a asp-controller="Home" asp-action="Index">Start</a>
+                    </li>
+                    <li class="active">
+                        <a asp-controller="Home" asp-action="About">About</a>
+                    </li>
+                </ul>
+                <a class="navbar-brand">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a asp-controller="Account" asp-action="Account">My account </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Account" asp-action="LogOut">Log out </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Order" asp-action="CartView">Shopping Cart</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container-fluid">
+            @RenderBody()
+        </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.ajax.unobtrusive/3.2.4/jquery.unobtrusive-ajax.min.js"></script>
+</div>
+</body>
+</html>

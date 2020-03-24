@@ -1,0 +1,32 @@
+﻿@model OrderCheckOut
+
+<div class="mainSide">
+    <table class="table-condensed">
+        <thead>
+        <tr>
+            <th>Thank you for your order</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td class="col-sm-7"> Date: @Model.TodoBestallning.BestallningDatum</td>
+        </tr>
+        <tr>
+            <td class="col-sm-7">Total: @Model.TodoBestallning.Totalbelopp kr</td>
+        </tr>
+        <tr>
+            <td class="col-sm-7"> Delivery to: @Model.ShoppingUser.Gatuadress</td>
+        </tr>
+        @foreach (var matratt in Model.ListOfMatrattToOrder)
+        {
+            <tr>
+                <td class="col-sm-3">@matratt.Matratt.MatrattNamn </td>
+
+                <td class="col-sm-9">Amount: @matratt.Antal </td>
+
+            </tr>
+        }
+        </tbody>
+    </table>
+
+</div>

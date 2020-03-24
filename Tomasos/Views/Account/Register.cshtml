@@ -1,0 +1,39 @@
+﻿@model Kund
+
+<div id="wrapper">
+    <div class="centrerad">
+
+
+        <form asp-controller="Account" asp-action="Register" method="post">
+            <h3> Create an account </h3>
+            <p class="smallText"> Please enter your contact details below </p>
+            <input type="text" placeholder="First Name  Last Name*" asp-for="Namn"/>
+
+            <input type="text" asp-for="Gatuadress" placeholder="Street*"/> <br/>
+            <span asp-validation-for="Namn"></span>
+            <span asp-validation-for="Gatuadress"></span>
+            <br/>
+            <input type="text" asp-for="Postnr" placeholder="Zip*"/>
+
+            <input type="text" asp-for="Postort" placeholder="City*"/> <br/>
+            <span asp-validation-for="Postnr"></span>
+            <span asp-validation-for="Postort"></span>
+            <br/>
+            <input type="text" asp-for="Email" placeholder="Email"/>
+            <input type="text" placeholder="Telefon" asp-for="Telefon"/> <br/>
+            <span asp-validation-for="Email"></span>
+            <span asp-validation-for="Telefon"></span>
+            <br/>
+            <input type="text" placeholder="User name*" asp-for="AnvandarNamn"/>
+            <input type="password" placeholder="Password*" asp-for="Losenord"/><br/>
+            <span asp-validation-for="AnvandarNamn"></span>
+            <span asp-validation-for="Losenord"></span>
+            <br/>
+            <p class="smallText"> * Please enter all mandatory information</p>
+            <button type="submit"> Save </button>
+            <p class="smallText">@ViewBag.Message </p>
+        </form>
+
+    </div>
+
+</div>
